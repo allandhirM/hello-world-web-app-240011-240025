@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./App.css";
+import SkillsModal from "./SkillsModal";
 
 /**
  * Minimal implementation of Figma node 36:108 "CGA Settings Menu - Skills".
@@ -132,95 +133,11 @@ function App() {
         <main className="cga108-main" aria-label="Main area" />
       </div>
 
-      {/* Modal overlay layer */}
-      {isModalOpen ? (
-        <div
-          className="cga108-overlay"
-          role="presentation"
-          onMouseDown={(e) => {
-            // Close only when clicking the dimmed backdrop, not inside the modal.
-            if (e.target === e.currentTarget) setIsModalOpen(false);
-          }}
-        >
-          <div
-            className="cga108-modal"
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="cga108-modal-title"
-            onMouseDown={(e) => {
-              // Prevent backdrop close when mouse down originates inside modal.
-              e.stopPropagation();
-            }}
-          >
-            <div className="cga108-modalHeader">
-              <div className="cga108-modalHeaderText">
-                <div className="cga108-modalTitleRow">
-                  <h2 id="cga108-modal-title" className="cga108-modalTitle">
-                    Skills for this chat
-                  </h2>
-                </div>
-                <p className="cga108-modalSubtitle">Changes apply only to this chat.</p>
-              </div>
-
-              <button
-                ref={closeButtonRef}
-                type="button"
-                className="cga108-modalClose"
-                aria-label="Close"
-                onClick={() => setIsModalOpen(false)}
-              >
-                <img
-                  src="/assets/cga-modal-close.svg"
-                  alt=""
-                  aria-hidden="true"
-                  className="cga108-modalCloseImg"
-                />
-              </button>
-            </div>
-
-            <div className="cga108-modalBody">
-              <div className="cga108-bodyInner">
-                <div className="cga108-bodyHeading">
-                  <span className="cga108-bodyHeadingText">Enabled Skills</span>
-                </div>
-
-                <div className="cga108-skillList" aria-label="Enabled skills list">
-                  <div className="cga108-skillRow" />
-                  <div className="cga108-skillRow cga108-skillRow--outlined" />
-                  <div className="cga108-skillRow cga108-skillRow--outlined" />
-                  <div className="cga108-skillRow cga108-skillRow--outlined" />
-                  <div className="cga108-skillRow cga108-skillRow--outlined" />
-                </div>
-              </div>
-            </div>
-
-            <div className="cga108-modalFooter">
-              <button type="button" className="cga108-manageBtn">
-                <span className="cga108-manageBtnText">Manage full settings</span>
-                <img
-                  className="cga108-manageBtnIcon"
-                  src="/assets/cga-manage-settings-arrow.svg"
-                  alt=""
-                  aria-hidden="true"
-                />
-              </button>
-
-              <div className="cga108-footerActions">
-                <button
-                  type="button"
-                  className="cga108-btn cga108-btn--secondary"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  Cancel
-                </button>
-                <button type="button" className="cga108-btn cga108-btn--primary">
-                  Save
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      ) : null}
+      <SkillsModal
+        open={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onSave={() => setIsModalOpen(false)}
+      />
     </div>
   );
 }

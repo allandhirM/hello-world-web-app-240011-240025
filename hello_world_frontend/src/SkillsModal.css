@@ -1,0 +1,288 @@
+:root{
+  --skills-modal-bg: #ffffff;
+  --skills-modal-text: #111827;
+  --skills-modal-muted: #6b7280;
+
+  --skills-modal-divider: #f3f4f6;
+  --skills-modal-footer-bg: #f9fafb;
+
+  --skills-toggle-on: #f97316;
+  --skills-toggle-off: #e5e7eb;
+
+  --skills-badge-bg: #d1fae5;
+  --skills-badge-text: #059669;
+
+  --skills-shadow-lg: 0px 25px 50px -12px rgba(0,0,0,0.25);
+  --skills-shadow-sm: 0px 1px 2px rgba(0,0,0,0.05);
+}
+
+.skillsModalOverlay{
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.30);
+  display: grid;
+  place-items: start center;
+  padding-top: 123px; /* screenshot vertical placement */
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+.skillsModal{
+  width: 672px;
+  height: 586px;
+  background: var(--skills-modal-bg);
+  border-radius: 12px;
+  box-shadow: var(--skills-shadow-lg);
+  overflow: hidden;
+  color: var(--skills-modal-text);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.skillsModalHeader{
+  height: 93px;
+  border-bottom: 1px solid var(--skills-modal-divider);
+  position: relative;
+  flex: 0 0 auto;
+}
+
+.skillsModalHeaderText{
+  position: absolute;
+  left: 24px;
+  top: 20px;
+}
+
+.skillsModalTitle{
+  margin: 0;
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 28px;
+  color: var(--skills-modal-text);
+}
+
+.skillsModalSubtitle{
+  margin: 4px 0 0 0;
+  font-size: 11.9px;
+  font-weight: 400;
+  line-height: 20px;
+  color: var(--skills-modal-muted);
+}
+
+.skillsModalClose{
+  position: absolute;
+  right: 24px;
+  top: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 9999px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: #9ca3af;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.skillsModalClose:focus-visible{
+  outline: 2px solid rgba(249,115,22,0.55);
+  outline-offset: 2px;
+}
+
+/* Body */
+.skillsModalBody{
+  flex: 1 1 auto;
+  background: var(--skills-modal-bg);
+}
+
+.skillsModalBodyInner{
+  padding: 24px;
+}
+
+.skillsModalSectionLabel{
+  font-size: 11.9px;
+  font-weight: 500;
+  line-height: 20px;
+  color: var(--skills-modal-muted);
+}
+
+.skillsModalList{
+  margin-top: 16px;
+}
+
+.skillsModalRow{
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 0 0 0;
+}
+
+.skillsModalRow:not(.isFirst){
+  border-top: 1px solid var(--skills-modal-divider);
+}
+
+.skillsModalRowLeft{
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.skillsModalRowTitleLine{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.skillsModalRowTitle{
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  color: var(--skills-modal-text);
+}
+
+.skillsModalBadge{
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 16px;
+  color: var(--skills-badge-text);
+  background: var(--skills-badge-bg);
+  padding: 2px 8px;
+  border-radius: 9999px;
+}
+
+.skillsModalRowDesc{
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+  color: var(--skills-modal-muted);
+}
+
+/* Toggle */
+.skillsModalToggle{
+  padding-right: 16px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.skillsModalToggle input{
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.skillsModalToggleTrack{
+  width: 40px;
+  height: 22px;
+  border-radius: 9999px;
+  background: var(--skills-toggle-off);
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  box-sizing: border-box;
+  transition: background 150ms ease;
+}
+
+.skillsModalToggleKnob{
+  width: 18px;
+  height: 18px;
+  border-radius: 9999px;
+  background: #ffffff;
+  box-shadow: var(--skills-shadow-sm);
+  transform: translateX(0);
+  transition: transform 150ms ease;
+}
+
+.skillsModalToggle input:checked + .skillsModalToggleTrack{
+  background: var(--skills-toggle-on);
+}
+
+.skillsModalToggle input:checked + .skillsModalToggleTrack .skillsModalToggleKnob{
+  transform: translateX(18px);
+}
+
+.skillsModalToggle:has(input:focus-visible) .skillsModalToggleTrack{
+  outline: 2px solid rgba(249,115,22,0.45);
+  outline-offset: 2px;
+}
+
+/* Footer */
+.skillsModalFooter{
+  height: 69px;
+  background: var(--skills-modal-footer-bg);
+  border-top: 1px solid var(--skills-modal-divider);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.skillsModalManage{
+  background: transparent;
+  border: none;
+  padding: 0;
+  color: #4b5563;
+  font-size: 11.9px;
+  font-weight: 500;
+  line-height: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.skillsModalManage:focus-visible{
+  outline: 2px solid rgba(75,85,99,0.35);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+.skillsModalManageArrow{
+  font-size: 14px;
+  line-height: 14px;
+}
+
+.skillsModalActions{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skillsModalBtn{
+  height: 36px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  padding: 0 16px;
+  font-size: 11.9px;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.skillsModalBtnSecondary{
+  background: transparent;
+  color: #374151;
+}
+
+.skillsModalBtnSecondary:focus-visible{
+  outline: 2px solid rgba(55,65,81,0.35);
+  outline-offset: 2px;
+}
+
+.skillsModalBtnPrimary{
+  background: var(--skills-toggle-on);
+  color: #ffffff;
+  box-shadow: var(--skills-shadow-sm);
+}
+
+.skillsModalBtnPrimary:focus-visible{
+  outline: 2px solid rgba(249,115,22,0.55);
+  outline-offset: 2px;
+}
