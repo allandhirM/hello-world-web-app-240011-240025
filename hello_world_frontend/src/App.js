@@ -1,47 +1,102 @@
-import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
 
 // PUBLIC_INTERFACE
 function App() {
-  const [theme, setTheme] = useState('light');
-
-  // Effect to apply theme to document element
-  useEffect(() => {
-    document.documentElement.setAttribute('data-theme', theme);
-  }, [theme]);
-
-  // PUBLIC_INTERFACE
-  const toggleTheme = () => {
-    setTheme(prevTheme => prevTheme === 'light' ? 'dark' : 'light');
-  };
-
+  /** Main app entry UI: renders the Settings Home sidebar as specified in Figma node 37:2118. */
   return (
-    <div className="App">
-      <header className="App-header">
-        <button 
-          className="theme-toggle" 
-          onClick={toggleTheme}
-          aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
-        >
-          {theme === 'light' ? '🌙 Dark' : '☀️ Light'}
-        </button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>
-          Current theme: <strong>{theme}</strong>
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="kavia-page" aria-label="Settings Home">
+      <aside className="kavia-sidebar" aria-label="Sidebar navigation">
+        <div className="kavia-sidebarHeader">
+          <div className="kavia-brand">
+            <div className="kavia-brandTextWrap">
+              <span className="kavia-brandText">KAVIA AI</span>
+            </div>
+          </div>
+
+          <img
+            className="kavia-brandMark"
+            src="/assets/kavia-sidebar-brandmark.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+
+        <div className="kavia-sidebarBody">
+          <div className="kavia-navTop">
+            <button type="button" className="kavia-btnNewChat">
+              <span className="kavia-btnNewChatIconWrap" aria-hidden="true">
+                <span className="kavia-btnNewChatIcon" />
+              </span>
+              <span className="kavia-btnNewChatText">New Chat</span>
+            </button>
+
+            <button type="button" className="kavia-btnNav">
+              <img
+                className="kavia-btnNavIcon"
+                src="/assets/icon-chats.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span className="kavia-btnNavText">Chats</span>
+            </button>
+
+            <button type="button" className="kavia-btnNav kavia-btnNav--projects">
+              <img
+                className="kavia-btnNavIcon"
+                src="/assets/icon-projects.svg"
+                alt=""
+                aria-hidden="true"
+              />
+              <span className="kavia-btnNavText">Projects</span>
+            </button>
+          </div>
+
+          <section className="kavia-section" aria-label="Recent Projects">
+            <button type="button" className="kavia-sectionHeader">
+              <span className="kavia-sectionTitle">Recent Projects</span>
+              <span className="kavia-sectionHeaderIcon" aria-hidden="true" />
+            </button>
+
+            <div className="kavia-sectionList" aria-hidden="true">
+              <div className="kavia-sectionListInner" />
+            </div>
+          </section>
+
+          <section className="kavia-section" aria-label="Recent Chats">
+            <button type="button" className="kavia-sectionHeader">
+              <span className="kavia-sectionTitle">Recent Chats</span>
+              <span className="kavia-sectionHeaderIcon" aria-hidden="true" />
+            </button>
+
+            <div className="kavia-sectionList" aria-hidden="true">
+              <div className="kavia-sectionListInner" />
+            </div>
+          </section>
+
+          <button type="button" className="kavia-userRow" aria-label="User profile">
+            <span className="kavia-avatar" aria-hidden="true">
+              <span className="kavia-avatarLetter">S</span>
+            </span>
+
+            <span className="kavia-userText">
+              <span className="kavia-userName">User</span>
+              <span className="kavia-userEmail">user@kavia.ai</span>
+            </span>
+          </button>
+
+          <img
+            className="kavia-swoosh"
+            src="/assets/kavia-swoosh.svg"
+            alt=""
+            aria-hidden="true"
+          />
+        </div>
+      </aside>
+
+      <main className="kavia-content" aria-label="Main content">
+        {/* Figma node provided focuses on the left sidebar; main area intentionally blank. */}
+      </main>
     </div>
   );
 }

@@ -21,84 +21,332 @@
   --button-text: #ffffff;
 }
 
-.App {
-  text-align: center;
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  min-height: 100vh;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
+/* -----------------------------
+   Figma: "Setings Home" (37:2118)
+   ----------------------------- */
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: var(--bg-secondary);
-  min-height: 100vh;
+.kavia-page {
+  width: 1280px;
+  height: 832px;
+  background: #ffffff;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: var(--text-primary);
-  transition: background-color 0.3s ease;
+  overflow: hidden;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  color: #111827;
+}
+
+.kavia-sidebar {
+  width: 280px;
+  height: 832px;
+  background: #ffffff;
+  border-right: 1px solid #e5e7eb;
+  box-sizing: border-box;
+}
+
+.kavia-sidebarHeader {
+  width: 279px;
+  height: 64px;
+  position: relative;
+  border-bottom: 1px solid #f3f4f6;
+  box-sizing: border-box;
+}
+
+.kavia-brand {
+  position: absolute;
+  left: 16px;
+  top: 15.5px;
+  width: 116.8px;
+  height: 32px;
+}
+
+.kavia-brandTextWrap {
+  position: absolute;
+  left: 44px;
+  top: 2px;
+  width: 72.8px;
+  height: 28px;
+}
+
+.kavia-brandText {
+  position: absolute;
+  left: 0;
+  top: 3px;
+  width: 72.8px;
+  height: 21px;
+  font-weight: 700;
+  font-size: 15.3px;
+  line-height: 28px; /* 1.830065... * 15.3 */
+  color: #111827;
+}
+
+.kavia-brandMark {
+  position: absolute;
+  left: 191px;
+  top: 14.5px;
+  width: 72px;
+  height: 34px;
+}
+
+.kavia-sidebarBody {
+  width: 279px;
+  height: 768px;
   position: relative;
 }
 
-.App-link {
-  color: var(--text-secondary);
-  transition: color 0.3s ease;
-}
-
-.theme-toggle {
+.kavia-navTop {
   position: absolute;
-  top: 20px;
-  right: 20px;
-  background-color: var(--button-bg);
-  color: var(--button-text);
+  left: 0;
+  top: 24px;
+  width: 279px;
+  height: 140px;
+}
+
+.kavia-btnNewChat {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  width: 247px;
+  height: 48px;
+  padding: 0;
   border: none;
-  border-radius: 8px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 600;
+  background: transparent;
   cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-  opacity: 0.9;
+.kavia-btnNewChatIconWrap {
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 26px;
+  height: 26px;
+  background: #ff6b35;
+  border-radius: 9999px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
 }
 
-.theme-toggle:active {
-  transform: translateY(0);
+.kavia-btnNewChatIcon {
+  position: absolute;
+  left: 3px;
+  top: 3px;
+  width: 20px;
+  height: 20px;
+  background: #ffffff;
+  border-radius: 3px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.kavia-btnNewChatText {
+  position: absolute;
+  left: 41px;
+  top: 17px;
+  width: 68.22px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 12.75px;
+  line-height: 20px; /* 1.5686... * 12.75 */
+  color: #111827;
 }
 
-/* Responsive design for mobile */
-@media (max-width: 768px) {
-  .theme-toggle {
-    top: 10px;
-    right: 10px;
-    padding: 8px 16px;
-    font-size: 12px;
-  }
+.kavia-btnNav {
+  position: absolute;
+  left: 16px;
+  top: 48px;
+  width: 247px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.kavia-btnNav--projects {
+  left: 12px;
+  top: 84px;
+}
+
+.kavia-btnNavIcon {
+  position: absolute;
+  left: 10px;
+  top: 8px;
+  width: 20px;
+  height: 20px;
+}
+
+.kavia-btnNav--projects .kavia-btnNavIcon {
+  left: 12px;
+}
+
+.kavia-btnNavText {
+  position: absolute;
+  left: 48px;
+  top: 8px;
+  width: 38.47px;
+  height: 20px;
+  font-weight: 500;
+  font-size: 11.9px;
+  line-height: 20px; /* 1.6806... * 11.9 */
+  color: #374151;
+}
+
+.kavia-btnNav--projects .kavia-btnNavText {
+  left: 44px;
+  width: 54.27px;
+}
+
+/* Sections: Recent Projects / Recent Chats */
+.kavia-section {
+  position: absolute;
+  left: 0;
+  width: 279px;
+  height: 89px;
+  border-top: 1px solid #f3f4f6;
+  box-sizing: border-box;
+}
+
+.kavia-section:nth-of-type(1) {
+  top: 188px;
+}
+
+.kavia-section:nth-of-type(2) {
+  top: 277px;
+}
+
+.kavia-sectionHeader {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 279px;
+  height: 32px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.kavia-sectionTitle {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  width: 126.67px;
+  height: 16px;
+  font-weight: 700;
+  font-size: 10.2px;
+  line-height: 16px;
+  color: #111827;
+}
+
+.kavia-section:nth-of-type(2) .kavia-sectionTitle {
+  left: 16px;
+  width: 101.8px;
+}
+
+.kavia-sectionHeaderIcon {
+  position: absolute;
+  left: 247px;
+  top: 8px;
+  width: 16px;
+  height: 16px;
+  background: transparent;
+}
+
+.kavia-sectionList {
+  position: absolute;
+  left: 0;
+  top: 40px;
+  width: 279px;
+  height: 40px;
+}
+
+.kavia-sectionListInner {
+  position: absolute;
+  left: 16px;
+  top: 4px;
+  width: 247px;
+  height: 32px;
+}
+
+/* User profile row at bottom */
+.kavia-userRow {
+  position: absolute;
+  left: 0;
+  top: 706px;
+  width: 279px;
+  height: 62px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  box-sizing: border-box;
+}
+
+.kavia-avatar {
+  position: absolute;
+  left: 8px;
+  top: 11px;
+  width: 40px;
+  height: 40px;
+  background: #ffedd5;
+  border-radius: 9999px;
+}
+
+.kavia-avatarLetter {
+  position: absolute;
+  left: 14.38px;
+  top: 9px;
+  width: 11.23px;
+  height: 21px;
+  font-weight: 500;
+  font-size: 15.3px;
+  line-height: 28px;
+  color: #ff6b35;
+}
+
+.kavia-userText {
+  position: absolute;
+  left: 60px;
+  top: 13px;
+  width: 179px;
+  height: 36px;
+}
+
+.kavia-userName {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  width: 52.61px;
+  height: 17px;
+  font-weight: 500;
+  font-size: 11.9px;
+  line-height: 20px;
+  color: #111827;
+}
+
+.kavia-userEmail {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 96.52px;
+  height: 16px;
+  font-weight: 400;
+  font-size: 10.2px;
+  line-height: 16px;
+  color: #6b7280;
+}
+
+.kavia-swoosh {
+  position: absolute;
+  left: 25px;
+  top: 21px;
+  width: 22px;
+  height: 21px;
+  pointer-events: none;
+  display: none; /* Hidden by default (unknown exact placement context); enable if needed in future */
+}
+
+/* Main content area (not specified by this Figma frame) */
+.kavia-content {
+  flex: 1;
+  height: 832px;
+  background: #ffffff;
 }
